@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Raneen_SmsIntegration::smsIntegration" title="SMS Integration" module="Raneen_SmsIntegration" sortOrder="51" resource="Raneen_SmsIntegration::smsIntegration"/>
+        <add id="Raneen_SmsIntegration::list" title="SMS Providers" module="Raneen_SmsIntegration" sortOrder="10" action="smsintegration/SmsIntegrations_Provider/index" resource="Raneen_SmsIntegration::list" parent="Raneen_SmsIntegration::smsIntegration" />
+        <add id="Raneen_SmsIntegration::history" title="SMS History" module="Raneen_SmsIntegration" sortOrder="11" action="smsintegration/SmsIntegrations_History/index" resource="Raneen_SmsIntegration::manage" parent="Raneen_SmsIntegration::smsIntegration" />
+        <add id="Raneen_SmsIntegration::sendsms" title="Send SMS To Customer Groups" module="Raneen_SmsIntegration" sortOrder="12" action="smsintegration/SmsIntegrations_SendSms/form" resource="Raneen_SmsIntegration::manage" parent="Raneen_SmsIntegration::smsIntegration" />
+        <add id="Raneen_SmsIntegration::sendlistssms" title="Send SMS To Lists of phones" module="Raneen_SmsIntegration" sortOrder="13" action="smsintegration/SmsIntegrations_SendSms/smsListPhones" resource="Raneen_SmsIntegration::manage" parent="Raneen_SmsIntegration::smsIntegration" />
+        <add id="Raneen_SmsIntegration::sendidlistssms" title="Send SMS To Customers" module="Raneen_SmsIntegration" sortOrder="14" action="smsintegration/SmsIntegrations_SendSms/smsListCustomers" resource="Raneen_SmsIntegration::manage" parent="Raneen_SmsIntegration::smsIntegration" />
+    </menu>
+</config>

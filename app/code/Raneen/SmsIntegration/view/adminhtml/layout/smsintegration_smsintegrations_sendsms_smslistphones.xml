@@ -1,0 +1,14 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <update handle="styles"/>
+    <head>
+        <title>
+            Send SMS Form
+        </title>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <uiComponent name="smsintegration_smsintegrations_sendsms_smslistphones"/>
+        </referenceContainer>
+    </body>
+</page>

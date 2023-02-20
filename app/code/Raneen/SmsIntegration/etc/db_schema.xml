@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="sms_providers" resource="default" engine="innodb" comment="SMS Providers">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true" comment="Provider ID"/>
+        <column xsi:type="varchar" name="provider_name" nullable="true" length="255" comment="Provider Name"/>
+        <column xsi:type="varchar" name="provider_url" nullable="true" length="255" comment="Provider Url"/>
+        <column xsi:type="varchar" name="request_type" nullable="true" length="255" comment="Provider Request Type"/>
+        <column xsi:type="json" name="request_body" nullable="true" comment="SMS Request Body"/>
+        <column xsi:type="varchar" name="authentication_url" nullable="true" length="255" comment="Provider Auth Url"/>
+        <column xsi:type="varchar" name="authentication_request_type" nullable="true" length="255" comment="Provider Auth Request Type"/>
+        <column xsi:type="json" name="authentication_request_body" nullable="true" comment="Authentication Request Body"/>
+        <column xsi:type="json" name="authentication_static_header" nullable="true" comment="Authentication Static Request Header"/>
+        <column xsi:type="tinyint" name="enable" nullable="true" comment="Is Enable"/>
+        <column xsi:type="timestamp" name="created_at" comment="Time of Creation"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+
+    <table name="sms_history" resource="default" engine="innodb" comment="SMS History">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true" comment="History ID"/>
+        <column xsi:type="varchar" name="receiver_mobile_number" nullable="true" length="255" comment="Receiver Mobile Number"/>
+        <column xsi:type="int" name="provider_id" nullable="false" unsigned="true" comment="Provider Id"/>
+        <column xsi:type="varchar" name="message" nullable="true" length="255" comment="Message"/>
+        <column xsi:type="varchar" name="trigger" nullable="true" length="255" comment="Trigger That Fire Send SMS"/>
+        <column xsi:type="json" name="response" nullable="true" length="255" comment="API Response"/>
+        <column xsi:type="timestamp" name="created_at" nullable="true" length="255" comment="Send SMS Time"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="SMSPROVIDERID" table="sms_history" column="provider_id" referenceTable="sms_providers" referenceColumn="id"/>
+    </table>
+</schema>

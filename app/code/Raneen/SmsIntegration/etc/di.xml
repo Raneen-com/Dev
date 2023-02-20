@@ -1,0 +1,35 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="raneen_smsintegration_listing_data_source"
+                      xsi:type="string">Raneen\SmsIntegration\Model\ResourceModel\SmsIntegrations\Collection
+                </item>
+            </argument>
+            <argument name="collections" xsi:type="array">
+                <item name="raneen_smsintegration_history_listing_data_source"
+                      xsi:type="string">Raneen\SmsIntegration\Model\ResourceModel\SmsHistory\Collection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Raneen\SmsIntegration\Model\ResourceModel\SmsIntegrations\Collection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">sms_providers</argument>
+            <argument name="resourceModel" xsi:type="string">
+                Raneen\SmsIntegration\Model\ResourceModel\SmsIntegrations
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Raneen\SmsIntegration\Model\ResourceModel\SmsHistory\Collection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">sms_history</argument>
+            <argument name="resourceModel" xsi:type="string">
+                Raneen\SmsIntegration\Model\ResourceModel\SmsHistory
+            </argument>
+        </arguments>
+    </virtualType>
+</config>

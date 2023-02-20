@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Raneen_UiBookmark::bookmark" title="Ui Bookmark Systems" module="Raneen_UiBookmark" sortOrder="51" resource="Raneen_UiBookmark::setting"/>
+        <add id="Raneen_UiBookmark::manage" title="Manage All Bookmarks" module="Raneen_UiBookmark" sortOrder="10" action="uibookmark/UiBookmarks/index" resource="Raneen_UiBookmark::items" parent="Raneen_UiBookmark::bookmark" />
+    </menu>
+</config>

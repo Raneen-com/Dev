@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">
+                smsintegration_smsintegrations_formedit.raneen_smsintegration_listing_data_source
+            </item>
+            <item name="deps" xsi:type="string">
+                smsintegration_smsintegrations_formedit.raneen_smsintegration_listing_data_source
+            </item>
+        </item>
+
+        <item name="label" xsi:type="string" translate="true">Edit The Record</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">smsintegration_smsintegrations_formedit</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="buttons" xsi:type="array">
+            <item name="save" xsi:type="string">Raneen\SmsIntegration\Block\Adminhtml\Edit\Edit</item>
+            <item name="back" xsi:type="string">Raneen\SmsIntegration\Block\Adminhtml\Edit\Back</item>
+        </item>
+    </argument>
+
+    <dataSource name="raneen_smsintegration_listing_data_source">
+
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Raneen\SmsIntegration\Model\DataProvider</argument>
+            <argument name="name" xsi:type="string">raneen_smsintegration_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="submit_url" xsi:type="url" path="*/*/update"/>
+                </item>
+            </argument>
+        </argument>
+
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+
+    <fieldset name="general_information">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="collapsible" xsi:type="boolean">false</item>
+                <item name="label" xsi:type="string" translate="true">General Information (Required)</item>
+                <item name="sortOrder" xsi:type="number">20</item>
+            </item>
+        </argument>
+
+        <field name="provider_name" sortOrder="1" formElement="input">
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <visible>true</visible>
+                <label translate="true">Provider Name</label>
+            </settings>
+        </field>
+
+        <field name="provider_url" sortOrder="2" formElement="input">
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <visible>true</visible>
+                <label translate="true">Provider URL</label>
+            </settings>
+        </field>
+
+        <field name="request_type" formElement="select">
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Request Type</label>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options>
+                            <option name="1" xsi:type="array">
+                                <item name="value" xsi:type="string">GET</item>
+                                <item name="label" xsi:type="string">GET</item>
+                            </option>
+                            <option name="2" xsi:type="array">
+                                <item name="value" xsi:type="string">POST</item>
+                                <item name="label" xsi:type="string">POST</item>
+                            </option>
+                        </options>
+                        <caption translate="true">-- Please Select Type --</caption>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+
+        <field name="request_body">
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="formElement" xsi:type="string">textarea</item>
+                    <item name="cols" xsi:type="number">15</item>
+                    <item name="rows" xsi:type="number">5</item>
+                    <item name="label" translate="true" xsi:type="string">Request Body (JSON)</item>
+                    <item name="dataType" translate="true" xsi:type="string">text</item>
+                    <item name="placeholder" xsi:type="string">
+                        { "key1":"value1", "key2":"value2"}
+                    </item>
+                    <item name="notice" xsi:type="string" translate="true"> Please use "%message%" with message value in json object and "%phone%" with phone value</item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="enable" formElement="select">
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">SMS Provider Enable</label>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options>
+                            <option name="1" xsi:type="array">
+                                <item name="value" xsi:type="string">0</item>
+                                <item name="label" xsi:type="string">Disable</item>
+                            </option>
+                            <option name="2" xsi:type="array">
+                                <item name="value" xsi:type="string">1</item>
+                                <item name="label" xsi:type="string">Enable</item>
+                            </option>
+                        </options>
+                        <caption translate="true">-- Please Select Status--</caption>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+    </fieldset>
+
+    <fieldset name="authorization">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="collapsible" xsi:type="boolean">false</item>
+                <item name="label" xsi:type="string" translate="true">Authorization API (Optional)</item>
+                <item name="sortOrder" xsi:type="number">21</item>
+            </item>
+        </argument>
+
+        <field name="auth_toggle" formElement="checkbox">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Raneen_SmsIntegration\js\mycheckbox</item>
+                    <item name="source" xsi:type="string">homeslider</item>
+                    <item name="default" xsi:type="number">0</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>boolean</dataType>
+                <label translate="true">Open Authorization Form</label>
+                <dataScope>status</dataScope>
+            </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <valueMap>
+                            <map name="false" xsi:type="number">0</map>
+                            <map name="true" xsi:type="number">1</map>
+                        </valueMap>
+                        <prefer>toggle</prefer>
+                    </settings>
+                </checkbox>
+            </formElements>
+        </field>
+
+        <field name="authentication_url" sortOrder="2" formElement="input">
+            <settings>
+                <dataType>text</dataType>
+                <visible>true</visible>
+                <label translate="true">URL</label>
+            </settings>
+        </field>
+
+        <field name="authentication_request_type" formElement="select">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Request Type</label>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options>
+                            <option name="1" xsi:type="array">
+                                <item name="value" xsi:type="string">GET</item>
+                                <item name="label" xsi:type="string">GET</item>
+                            </option>
+                            <option name="2" xsi:type="array">
+                                <item name="value" xsi:type="string">POST</item>
+                                <item name="label" xsi:type="string">POST</item>
+                            </option>
+                        </options>
+                        <caption translate="true">-- Please Select Type --</caption>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+
+        <field name="authentication_request_body">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="formElement" xsi:type="string">textarea</item>
+                    <item name="cols" xsi:type="number">15</item>
+                    <item name="rows" xsi:type="number">5</item>
+                    <item name="label" translate="true" xsi:type="string">Request Body (JSON)</item>
+                    <item name="dataType" translate="true" xsi:type="string">text</item>
+                    <item name="placeholder" xsi:type="string">
+                        { "key1":"value1", "key2":"value2"}
+                    </item>
+                </item>
+            </argument>
+        </field>
+
+    </fieldset>
+
+    <fieldset name="static_authorization">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="collapsible" xsi:type="boolean">false</item>
+                <item name="label" xsi:type="string" translate="true">Static Authorization (Optional)</item>
+                <item name="sortOrder" xsi:type="number">22</item>
+            </item>
+        </argument>
+
+        <field name="authentication_static_header">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="formElement" xsi:type="string">textarea</item>
+                    <item name="cols" xsi:type="number">15</item>
+                    <item name="rows" xsi:type="number">5</item>
+                    <item name="label" translate="true" xsi:type="string">Request Body (JSON)</item>
+                    <item name="dataType" translate="true" xsi:type="string">text</item>
+                    <item name="placeholder" xsi:type="string">
+                        { "key1":"value1", "key2":"value2"}
+                    </item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+</form>
